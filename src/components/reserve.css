@@ -1,0 +1,28 @@
+.reserve {
+  padding: 0; border: 0; max-width: none; max-height: none; width: 100%; height: 100%;
+  background: transparent; color: var(--ivory); margin: 0;
+}
+.reserve::backdrop { background: rgba(12, 8, 6, 0.72); backdrop-filter: blur(6px); }
+.reserve[open] .reserve__inner { animation: drawerIn 0.7s var(--ease-out) both; }
+@keyframes drawerIn { from { transform: translateX(100%); } to { transform: none; } }
+.reserve__inner {
+  position: absolute; inset: 0 0 0 auto; width: min(560px, 100%); overflow-y: auto;
+  padding: clamp(4.5rem, 8vw, 6rem) clamp(1.25rem, 5vw, 3.5rem) 2.5rem;
+  display: flex; flex-direction: column; gap: 1.75rem;
+  background: var(--espresso-2);
+  border-left: 1px solid var(--line-light);
+}
+.reserve__title { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+.reserve__close { position: absolute; top: 1.25rem; right: 1.25rem; width: 48px; height: 48px; border: 1px solid var(--line-light); background: none; border-radius: 50%; }
+.reserve__close span, .reserve__close span::after { position: absolute; left: 50%; top: 50%; width: 18px; height: 1px; background: currentColor; transform: translate(-50%, -50%) rotate(45deg); content: ''; }
+.reserve__close span::after { transform: translate(-50%, -50%) rotate(-90deg); }
+.reserve__form { display: grid; gap: 1.5rem; }
+.reserve input[type='date'] { color-scheme: dark; }
+.party { display: grid; grid-template-columns: 52px 1fr 52px; border: 1px solid rgba(244, 237, 226, 0.28); align-items: stretch; }
+.party button { background: none; border: 0; font-size: 1.4rem; min-height: 52px; }
+.party button:disabled { opacity: 0.3; cursor: default; }
+.party button:hover:not(:disabled) { background: rgba(244, 237, 226, 0.06); }
+.party output { display: grid; place-items: center; font-family: var(--serif); font-size: 1.35rem; border-inline: 1px solid rgba(244, 237, 226, 0.18); }
+.reserve__go { width: 100%; }
+.reserve__note { font-size: 0.9rem; }
+.reserve__alt { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--line-light); display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; }
